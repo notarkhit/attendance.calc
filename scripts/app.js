@@ -9,13 +9,15 @@ calcBtn.addEventListener("click", () => {
 	let present = parseInt(presentDays.value);
 	let percentage = parseInt(requiredPercentage.value)
 
-	if (isNaN(presentDays) || isNaN(requiredPercentage) || isNaN(total)) {
+	if (isNaN(present) || isNaN(percentage) || isNaN(total)) {
 		return (outputDiv.innerText = "Insert proper values!");
 	}
 	if (presentDays > totalDays || totalDays <= 0 || presentDays < 0) {
 		return (outputDiv.innerText = "Insert proper values!");
 	}
-
+	let classesToGO = classesToTarget(present, total, percentage);
+	console.log(classesToGO);
+	return (outputDiv.innerText = `To reach target ${classesToGO}`);
 
 });
 
